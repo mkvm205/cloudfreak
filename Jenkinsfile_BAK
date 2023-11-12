@@ -22,7 +22,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('mkvm2050/murali-k8-cf', "./docker")
+                 def customImage = docker.build('initsixcloud/petclinic', "./docker")
                  docker.withRegistry('https://registry.hub.docker.com', 'mkvm2050') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
